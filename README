@@ -1,0 +1,12 @@
+-----------------------------
+How To Run
+-----------------------------
+1. Modify src/resources/migration.properties to change source file and target file locations
+
+   source.folder=sample/source/multi-source
+   target.folder=sample/target/content
+
+2. Run 'mvn clean package'
+3. Run 'java -jar target/migration-1.0-SNAPSHOT-jar-with-dependencies.jar src/main/resources'
+
+
