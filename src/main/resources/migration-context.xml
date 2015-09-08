@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- //////////////////////////////// -->
+    <!-- 								  -->
+    <!--			 Properties			  -->
+    <!-- 								  -->
+    <!-- //////////////////////////////// -->
+
+    <bean name="MigrationProperties"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath*:migration.properties</value>
+                <value>classpath*:custom-migration.properties</value>
+            </list>
+        </property>
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+    </bean>
+
+    <bean id="Parser" class="com.rivetlogic.migration.sample.parser.SampleXMLParser">
+        <property name="rootPath" value="${parser.rootPath}"/>
+    </bean>
+
+    <bean id="Transformer" class="com.rivetlogic.migration.sample.transformer.SampleXMLTransformer">
+        <property name="sourceDateFormat" value="${transformer.sourceDateFormat}"/>
+        <property name="targetDateFormat" value="${transformer.targetDateFormat}"/>
+        <property name="scanners">
+            <list>
+                <ref bean="ImageScanner"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="ImageScanner" class="com.rivetlogic.migration.sample.scanner.ImageScanner">
+        <property name="pattern" value="${imageScanner.pattern}"/>
+        <property name="replacePattern" value="${imageScanner.replacePattern}"/>
+        <property name="targetGroup" value="${imageScanner.targetGroup}"/>
+        <property name="numImagesInFolder" value="${imageScanner.numImagesInFolder}"/>
+        <property name="numFoldersInFolder" value="${imageScanner.numFoldersInFolder}"/>
+        <property name="originalImageRoot" value="${source.imageRootPath}"/>
+        <property name="imageRoot" value="${target.imageRootPath}"/>
+        <property name="sourceImageFolder" value="${source.imageRootFolder}"/>
+        <property name="targetImageFolder" value="${target.imageRootFolder}"/>
+    </bean>
+
+    <bean id="FileCreator" class="com.rivetlogic.migration.sample.creator.SamplePageCreator">
+        <property name="dateFieldName" value="${fileCreator.dateFieldName}"/>
+        <property name="titleFieldName" value="${fileCreator.titleFieldName}"/>
+    </bean>
+
+    <bean id="XMLFileWriter" class="com.rivetlogic.migration.sample.writer.SampleXMLWriter">
+    </bean>
+
+</beans>

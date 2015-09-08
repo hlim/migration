@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+    <article>
+        <articleTitle>5 Reasons You Should Consider Building a Native Mobile App</articleTitle>
+        <articleBody>&lt;p&gt;The buzz around mobile has been around for a while and isn&amp;#8217;t going anywhere, and with good reason. When over 90% of adults have their mobile phone within arm&amp;#8217;s reach 24/7, it&amp;#8217;s apparent that as a society, we&amp;#8217;ve become largely dependent on our mobile devices. I bet the last time you forgot your phone at home, you felt like a part of you was missing, didn&amp;#8217;t you? Well, you&amp;#8217;re not alone.&lt;/p&gt;
+            &lt;p&gt;With the population spending more and more time on their mobile devices, businesses can no longer afford to ignore their mobile experience. With an unlimited amount of information at their fingertips, consumers expect the ability to quickly access whatever info they need at that moment. And that&amp;#8217;s not just limited to consumers. In B2B environments, business users are researching products and services on their smartphones, and performing tasks that would typically be done on desktops.&lt;/p&gt;
+            &lt;p&gt;&lt;img class=&quot;alignleft  wp-image-674&quot; alt=&quot;mobileapp-bannerleft&quot; src=&quot;/wp-content/uploads/2015/06/mobileapp-bannerleft.jpg&quot; width=&quot;360&quot; height=&quot;330&quot; /&gt;&lt;/a&gt;This requires a different approach to strategizing for mobile, a mobile-first approach. The question is no longer &amp;#8220;should I build a responsive site or a native mobile app?&amp;#8221; It&amp;#8217;s not a matter of one versus the other. Businesses today need to have a mobile friendly website, period. It&amp;#8217;s what your audience expects.&lt;/p&gt;
+            &lt;p&gt;The question now becomes, &amp;#8220;is mobile web enough?&amp;#8221; To bring your customer engagement to the next level, it&amp;#8217;s a good idea to consider a native mobile app. If you&amp;#8217;re still not convinced, here are five advantages of mobile apps that makes the UX superior:&lt;/p&gt;
+            &lt;ol&gt;
+            &lt;li&gt;&lt;span style=&quot;line-height: 13px;&quot;&gt;&lt;strong&gt;Better handling of touch, gestures, and swipes&lt;/strong&gt; &amp;#8211; Side to side swiping, while very popular on mobile apps and desktop sites, doesn&amp;#8217;t work as well on mobile websites&lt;/span&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Faster and more responsive&lt;/strong&gt; &amp;#8211; While mobile sites download the experience and data for each page through verbose HTML, mobile apps already contain most of the experience definition and only need to download the data&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Easy to continue where you left off&lt;/strong&gt; &amp;#8211; Mobile apps allow users to carry on tasks that span over long periods of time without having to log back in each time&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Tighter device integration&lt;/strong&gt; &amp;#8211; Mobile apps are much better equipped at handling features like geo-location, camera, and push notifications. While HTML5 is capable of supporting some of these device integrations, it&amp;#8217;s not to the same degree and is often a power drainer&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Integration with other apps&lt;/strong&gt; &amp;#8211; It&amp;#8217;s much easier and seamless to launch from one app to another app, than from an app to a mobile web app (take using your Facebook login to login to Pinterest for example)&lt;/li&gt;
+            &lt;/ol&gt;
+            &lt;p&gt;Well, there you have it, five advantages that native mobile apps have over their mobile web counterparts. Of course, this doesn&amp;#8217;t mean everyone should go and replace all their web apps with native apps. Each business still needs to determine what works best for them. But this provides some areas for consideration the next time you&amp;#8217;re trying to decide whether or not to build that mobile app!&lt;/p&gt;</articleBody>
+        <dateCreated>2015-06-12T13:27:16</dateCreated>
+        <dateModified>2015-06-12T13:30:20</dateModified>
+        <categories>
+            <categoryId>1</categoryId>
+            <categoryId>5</categoryId>
+        </categories>
+    </article>
+</site>

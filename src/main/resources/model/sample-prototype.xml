@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<page>
+    <content-type>/page/sample</content-type>
+    <display-template>/templates/web/sample.xhtml</display-template>
+    <merge-strategy>inherit-levels</merge-strategy>
+    <meta-keywords/>
+    <meta-description/>
+    <title/>
+    <internal-name/>
+    <file-name>index.xml</file-name>
+    <folder-name/>
+    <body></body>
+    <createdDate></createdDate>
+    <categories></categories>
+    <lastModifiedDate></lastModifiedDate>
+</page>
