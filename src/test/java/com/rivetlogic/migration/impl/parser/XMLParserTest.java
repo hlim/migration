@@ -1,13 +1,11 @@
-package com.rivetlogic.migration.impl.com.rivetlogic.migration.impl.parser;
+package com.rivetlogic.migration.impl.parser;
 
 import com.rivetlogic.migration.api.model.SourceContent;
-import com.rivetlogic.migration.impl.parser.XMLParser;
 import org.dom4j.Document;
 import org.dom4j.Element;
 import org.dom4j.Node;
 import org.testng.annotations.Test;
 
-import javax.xml.transform.Source;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;

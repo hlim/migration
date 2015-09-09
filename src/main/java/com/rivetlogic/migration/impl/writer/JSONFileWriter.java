@@ -7,6 +7,7 @@ import com.rivetlogic.migration.api.writer.Writer;
 import com.rivetlogic.migration.api.model.TargetContent;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +26,7 @@ public class JSONFileWriter implements Writer {
     }
 
     public void write(Properties configProperties, List<TargetContent> items, File file) throws IOException {
-        java.io.FileWriter fileFileWriter = new java.io.FileWriter(file);
+        FileWriter fileFileWriter = new FileWriter(file);
         try {
             List<Map<String, Object>> jsonItems = new ArrayList();
             if (items != null) {

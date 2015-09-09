@@ -45,11 +45,7 @@ public class XMLFileWriter implements Writer {
                     }
                     Document document = loadProtoType(configProperties, item.getContentKey());
                     this.updateDocument(item, document);
-                    OutputFormat format = OutputFormat.createPrettyPrint();
-                    FileWriter fileWriter = new FileWriter(file);
-                    XMLWriter writer = new XMLWriter(fileWriter, format);
-                    writer.write(document);
-                    fileWriter.close();
+                    writeToFile(document, file);
                 } catch (DocumentException e) {
                     LOGGER.error("Failed to create a file from " + item, e);
                 }
@@ -57,7 +53,28 @@ public class XMLFileWriter implements Writer {
         }
     }
 
-    public void updateDocument(TargetContent target, Document document) {
+    /**
+     * <p>write document to a file</p>
+     *
+     * @param document a {@link org.dom4j.Document} object
+     * @param file a {@link java.io.File} object
+     * @throws IOException
+     */
+    protected void writeToFile(Document document, File file) throws IOException {
+        FileWriter fileWriter = new FileWriter(file);
+        OutputFormat format = OutputFormat.createPrettyPrint();
+        XMLWriter writer = new XMLWriter(fileWriter, format);
+        writer.write(document);
+        fileWriter.close();
+    }
+
+    /**
+     * <p>update document with target content</p>
+     *
+     * @param target a {@link com.rivetlogic.migration.api.model.TargetContent} object
+     * @param document a {@link org.dom4j.Document} object
+     */
+    protected void updateDocument(TargetContent target, Document document) {
         Element root = document.getRootElement();
         if (target != null) {
             Map<String, Object> properties = target.getProperties();
