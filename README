@@ -7,6 +7,6 @@ How To Run
    target.folder=sample/target/content
 
 2. Run 'mvn clean package'
-3. Run 'java -jar target/migration-1.0-SNAPSHOT-jar-with-dependencies.jar src/main/resources'
+3. Run 'java -jar target/migration-1.0.0-jar-with-dependencies.jar src/main/resources'
 
 
