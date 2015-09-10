@@ -1,6 +1,5 @@
 package com.rivetlogic.migration.impl.parser;
 
-import com.rivetlogic.migration.api.parser.Parser;
 import com.rivetlogic.migration.api.exception.ParsingException;
 import com.rivetlogic.migration.api.model.SourceContent;
 import org.apache.log4j.Logger;
@@ -14,11 +13,11 @@ import java.util.*;
 /**
  * <p>Parses Microsoft Excel files</p>
  */
-public abstract class XLSXParser implements Parser {
+public abstract class XLSXParser extends BaseParser {
 
     final static Logger LOGGER = Logger.getLogger(XLSXParser.class);
 
-    public List<SourceContent> parse(Properties sourceProperties, File file) throws ParsingException, IOException, InvalidFormatException {
+    public List<SourceContent> parse(Properties configProperties, File file) throws ParsingException, IOException, InvalidFormatException {
         Workbook wb = WorkbookFactory.create(file);
         Sheet sheet = wb.getSheetAt(0);
         List<SourceContent> parsedItems = new ArrayList();
@@ -28,6 +27,7 @@ public abstract class XLSXParser implements Parser {
         if (rowIter.hasNext()) {
             while (rowIter.hasNext()) {
                 Row row = rowIter.next();
+                Properties sourceProperties = getSourceProperties(configProperties, getContentKey(row));
                 String contentKey = getContentKey(row);
                 if (row.getPhysicalNumberOfCells() == columnHeaders.length) {
                     Map<String, Object> parsedProperties = parseCell(row, columnHeaders);
