@@ -56,7 +56,7 @@ public class XMLParserTest {
     class TestXMLParser extends XMLParser {
 
         @Override
-        protected String getContentKey(Document source) {
+        protected String getContentKey(File file, Document source) {
             return "sample";
         }
 
