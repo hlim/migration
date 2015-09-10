@@ -27,8 +27,8 @@ public abstract class XLSXParser extends BaseParser {
         if (rowIter.hasNext()) {
             while (rowIter.hasNext()) {
                 Row row = rowIter.next();
-                Properties sourceProperties = getSourceProperties(configProperties, getContentKey(row));
-                String contentKey = getContentKey(row);
+                String contentKey = getContentKey(file, row);
+                Properties sourceProperties = getSourceProperties(configProperties, contentKey);
                 if (row.getPhysicalNumberOfCells() == columnHeaders.length) {
                     Map<String, Object> parsedProperties = parseCell(row, columnHeaders);
                     if (sourceProperties != null) {
@@ -58,10 +58,11 @@ public abstract class XLSXParser extends BaseParser {
     /**
      * <p>get a content key from a row</p>
      *
+     * @param file a {@link java.io.File} object
      * @param row a {@link org.apache.poi.ss.usermodel.Row} object
      * @return a {@link java.lang.String} object
      */
-    protected abstract String getContentKey(Row row);
+    protected abstract String getContentKey(File file, Row row);
 
     /**
      * <p>parse cells in a row</p>

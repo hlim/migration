@@ -29,7 +29,7 @@ public abstract class XMLParser extends BaseParser {
         if (file.getName().endsWith(XML_FILE)) {
             try {
                 Document document = loadXml(file);
-                String contentKey = getContentKey(document);
+                String contentKey = getContentKey(file, document);
                 Properties sourceProperties = getSourceProperties(configProperties, contentKey);
                 Element root = document.getRootElement();
                 List<Node> nodes = root.selectNodes(rootPath);
@@ -76,10 +76,11 @@ public abstract class XMLParser extends BaseParser {
     /**
      * <p>get a content key from the source</p>
      *
+     * @param file a {@link java.io.File} object
      * @param source a {@link org.dom4j.Document} object
      * @return a {@link java.lang.String} object
      */
-    protected abstract String getContentKey(Document source);
+    protected abstract String getContentKey(File file, Document source);
 
     /**
      * <p>load xml file</p>
