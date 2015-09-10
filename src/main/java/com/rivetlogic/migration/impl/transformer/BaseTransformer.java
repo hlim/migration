@@ -2,18 +2,48 @@ package com.rivetlogic.migration.impl.transformer;
 
 import com.rivetlogic.migration.api.constant.MigrationConstants;
 import com.rivetlogic.migration.api.exception.TransformationException;
+import com.rivetlogic.migration.api.scanner.Scanner;
 import com.rivetlogic.migration.api.transformer.Transformer;
 import com.rivetlogic.migration.impl.util.MigrationUtils;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Properties;
 
 /**
  * <p>BaseTransformer</p>
  */
 public abstract class BaseTransformer implements Transformer {
+
+    final static Logger LOGGER = Logger.getLogger(BaseTransformer.class);
+
+    // content scanners
+    private List<Scanner> scanners;
+
+    /**
+     * <p>scan content through ContentScanners</p>
+     *
+     * @param content a {@link java.lang.String} object
+     * @return a {@link java.lang.String} object
+     * @throws TransformationException
+     */
+    public String scanContent(String content) throws TransformationException {
+        if (scanners != null) {
+            StringBuffer contentSb = new StringBuffer(content);
+            for (Scanner scanner : getScanners()) {
+                if (LOGGER.isDebugEnabled()) {
+                    LOGGER.debug("Running " + scanner.getClass());
+                }
+                StringBuffer result = scanner.scan(contentSb);
+                contentSb = result;
+            }
+            return content.toString();
+        }
+        return content;
+    }
 
     /**
      * <p>transform by invoking a method specified</p>
@@ -67,4 +97,17 @@ public abstract class BaseTransformer implements Transformer {
         }
     }
 
+    /**
+     * <p>get <field>scanners</field></p>
+     *
+     * @return a {@link java.util.List} object
+     */
+    public List<Scanner> getScanners() { return this.scanners; }
+
+    /**
+     * <p>set <field>scanners</field></p>
+     *
+     * @param scanners a {@link java.util.List} object
+     */
+    public void setScanners(List<Scanner> scanners) { this.scanners = scanners; }
 }

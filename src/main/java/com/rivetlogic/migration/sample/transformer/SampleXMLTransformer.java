@@ -20,8 +20,6 @@ public class SampleXMLTransformer extends XMLTransformer {
     private String sourceDateFormat;
     // output date format
     private String targetDataFormat;
-    // content scanners
-    private List<Scanner> scanners;
 
     /**
      * <p>processing multiple params example</p></p>
@@ -39,18 +37,7 @@ public class SampleXMLTransformer extends XMLTransformer {
     }
 
     public Object transformContent(String body) throws TransformationException {
-        if (scanners != null) {
-            StringBuffer content = new StringBuffer(body);
-            for (Scanner scanner : getScanners()) {
-                if (LOGGER.isDebugEnabled()) {
-                    LOGGER.debug("Running " + scanner.getClass());
-                }
-                StringBuffer result = scanner.scan(content);
-                content = result;
-            }
-            return content.toString();
-        }
-        return body;
+        return scanContent(body);
     }
 
     /**
@@ -133,18 +120,4 @@ public class SampleXMLTransformer extends XMLTransformer {
      * @return a {@link java.lang.String} object
      */
     public String getTargetDateFormat() { return this.targetDataFormat; }
-
-    /**
-     * <p>get <field>scanners</field></p>
-     *
-     * @return a {@link java.util.List} object
-     */
-    public List<Scanner> getScanners() { return this.scanners; }
-
-    /**
-     * <p>set <field>scanners</field></p>
-     *
-     * @param scanners a {@link java.util.List} object
-     */
-    public void setScanners(List<Scanner> scanners) { this.scanners = scanners; }
 }
